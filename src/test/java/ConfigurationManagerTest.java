@@ -39,7 +39,7 @@ public class ConfigurationManagerTest {
         YamlConfiguration fc = new YamlConfiguration();
 
         try {
-            fc.load(new File("src\\test\\resources\\config.yml"));
+            fc.load(new File(".\\src\\test\\resources\\config.yml"));
         } catch (IOException | InvalidConfigurationException e1) {
             e1.printStackTrace();
         }
