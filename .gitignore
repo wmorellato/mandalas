@@ -1,0 +1,24 @@
+# Eclipse stuff
+/.classpath
+/.project
+/.vscode
+/.settings
+
+# netbeans
+/nbproject
+
+# maven
+/target
+
+# ant
+/bin
+/dist
+
+# vim
+.*.sw[a-p]
+
+# batch
+*.bat
+
+# viewer util
+Viewer.java

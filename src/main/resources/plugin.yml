@@ -1,0 +1,44 @@
+# Mandalas is an open-source Minecraft plugin.
+# Copyright (C) 2020  Wesley Morellato
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+name: Mandalas
+main: com.wmorellato.mandalas.MandalasPlugin
+version: ${version}
+api-version: 1.15
+commands:
+  mandala:
+    description: Creates a mandala in the selected region. Center block and radius must be already defined.
+    usage: /mandala <material1> <material2> ...
+  ms:
+    description: Creates a mandala in the selected region with the provided seed. Center block and radius must be already defined.
+    usage: /ms <seed> <material1> <material2> ...
+  mr:
+    description: Set the radius of the mandala to be drawn. Center block must be already defined.
+    usage: /mr <radius>
+  mtool:
+    description: Set the item held in the default hand as the selection tool.
+permissions:
+  mandalas.*:
+    description: Access to all mandala commands
+    children:
+      mandalas.create: true
+      mandalas.set_tool: true
+  mandalas.create:
+    description: Allow a player to create a mandala in the world.
+    default: op
+  mandalas.set_tool:
+    description: Allow a player to change the selection tool used to create mandalas.
+    default: op

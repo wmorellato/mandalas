@@ -1,0 +1,71 @@
+# Mandalas is an open-source Minecraft plugin.
+# Copyright (C) 2020  Wesley Morellato
+
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+# if this option is set to true, every single mandala generated
+# will be exported to an image in your local file system
+save_all_to_bitmap: false
+
+# the tool used to select the region in the world that
+# will hold the mandala. This works similar to the
+# selection wand from WorldEdit. If editting this
+# manually, you MUST use the name of the Material enum
+# from Bukkit (https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html)
+selection_tool: RED_TULIP
+
+# default configuration for the form of the mandala
+mandala:
+  # 8 sections works better, producing more symmetric shapes
+  # more sections means more processing required
+  sections: 8
+
+  # how many and which elements will compose the mandala
+  # check the documentation to see a full list of the
+  # availables elements
+  elements:
+
+    # elements under the random key will be selected with the
+    # given attributes 'count' times. Just set the number of
+    # elements and the pool. The element type must match exatcly
+    # the names used here. Check the docs for more info.
+    #
+    # again, more elements require more processing
+    random:
+      count: 10
+      pool:
+        CURVE_RANDOM:
+          vertices: 8
+          range: [0.25, 1.0]
+        CURVE_CONVEX:
+          vertices: 8
+          range: [0.25, 0.5]
+        CURVE_CONCAVE:
+          vertices: 8
+          range: [0.75, 1.0]
+
+    # elements under the fixed key will appear in the mandala one
+    # for each specified. If you want more than one of the same type of
+    # element fixed, you MUST name include the suffix "_X" at the end of
+    # each one, X being unique (this can be anything). See below
+    fixed: 
+      # specifying two petals, so I must name them differently
+      # this one ends with _1
+      PETAL_1:
+        range: [0.5, 0.75]
+      # this one ends with _2
+      PETAL_2:
+        range: [0.1, 0.5]
+      STRIP:
+        range: [0.8, 1.0]

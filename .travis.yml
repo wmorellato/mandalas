@@ -1,0 +1,20 @@
+sudo: false
+language: java
+dist: trusty
+jdk:
+  - oraclejdk8
+notifications:
+  email: false
+cache:
+  directories:
+    - $HOME/.m2
+before_deploy:
+  - git config --local user.name "Weslley Morellato"
+  - git config --local user.email "morellato.weslley@gmail.com"
+deploy:
+  provider: releases
+  github_token: $GITHUB_OAUTH_TOKEN
+  file: target/mandalas.jar
+  skip_cleanup: true
+  on:
+    tags: true
